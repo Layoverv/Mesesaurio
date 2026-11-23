@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feliz Mesesaurio Amor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:wght@400;500;600&family=Great+Vibes&display=swap">
+<style>
+  /* Layout: a single vertical poster with frosted-glass cards over soft iridescent blobs (single light look, like the original PSD) */
+  :root {
+    --ground: #dfe0e4;
+    --paper: #e3e4e8;
+    --ink: #3a3a3f;
+    --ink-soft: #5b5b63;
+    --glass: rgba(236, 237, 241, 0.55);
+    --glass-edge: rgba(255, 255, 255, 0.75);
+    --violet: #8a2be2;
+    --lilac: #c18cff;
+    --aqua: #a8f3f7;
+    --rose: #e86fb8;
+    --peach: #f2a27a;
+    --font-display: "Tenor Sans", "Didot", Georgia, serif;
+    --font-body: "Montserrat", "Segoe UI", system-ui, sans-serif;
+    --font-script: "Great Vibes", "Brush Script MT", cursive;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 56px;
+    overflow-x: hidden;
+  }
+
+  .heading {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .heading .over {
+    font-family: var(--font-display);
+    letter-spacing: .14em;
+    font-size: clamp(1.1rem, 3.2vw, 1.6rem);
+    margin: 0;
+  }
+  .heading .under {
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: .12em;
+    color: #8f8f96;
+    font-size: clamp(.85rem, 2.4vw, 1.15rem);
+    margin: 4px 0 0;
+  }
+
+  /* ---------- poster ---------- */
+  .poster {
+    position: relative;
+    width: min(760px, 100%);
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: 0 18px 40px rgba(60, 60, 80, .18);
+    overflow: hidden;
+    padding: 0 clamp(18px, 5vw, 48px) clamp(28px, 5vw, 48px);
+    isolation: isolate;
+  }
+
+  /* soft colored glows */
+  .glow { position: absolute; border-radius: 50%; filter: blur(60px); z-index: -2; pointer-events: none; }
+  .glow.g1 { width: 46%; aspect-ratio: 1; left: -22%; top: 26%; background: radial-gradient(circle, var(--rose), rgba(193,140,255,.6) 45%, transparent 70%); opacity: .7; }
+  .glow.g2 { width: 40%; aspect-ratio: 1; right: -18%; top: 50%; background: radial-gradient(circle, var(--peach), rgba(232,111,184,.4) 50%, transparent 72%); opacity: .75; }
+  .glow.g3 { width: 18%; aspect-ratio: 1; left: -6%; bottom: -6%; background: radial-gradient(circle, #f6a33e, transparent 70%); opacity: .8; filter: blur(22px); }
+  .glow.g4 { width: 16%; aspect-ratio: 1; right: -5%; top: -5%; background: radial-gradient(circle, #f6a33e, transparent 70%); opacity: .7; filter: blur(22px); }
+
+  /* iridescent blobs */
+  .blob { position: absolute; z-index: -1; pointer-events: none; }
+  .blob.b1 {
+    width: 40%; aspect-ratio: 1 / 1.05; right: 6%; top: 70px;
+    border-radius: 58% 42% 50% 50% / 45% 52% 48% 55%;
+    background:
+      radial-gradient(circle at 72% 62%, var(--aqua) 0%, rgba(168,243,247,0) 38%),
+      radial-gradient(circle at 40% 30%, var(--lilac) 0%, transparent 60%),
+      linear-gradient(150deg, #9b4dff 0%, #8f6df5 45%, #7c2ae8 100%);
+    box-shadow: inset -14px -18px 30px rgba(110, 20, 210, .45), inset 10px 12px 26px rgba(255,255,255,.25);
+    animation: drift 9s ease-in-out infinite alternate;
+  }
+  .blob.b2 {
+    width: 46%; aspect-ratio: 1.3 / 1; left: 3%; bottom: 120px;
+    border-radius: 30% 70% 60% 40% / 40% 35% 65% 60%;
+    transform: rotate(28deg);
+    background:
+      radial-gradient(circle at 25% 45%, #f2b6ff 0%, transparent 40%),
+      radial-gradient(circle at 60% 22%, var(--aqua) 0%, transparent 30%),
+      linear-gradient(160deg, #b98af8 0%, #a173f2 50%, #8a2be2 100%);
+    box-shadow: inset -12px -16px 28px rgba(110, 20, 210, .45), inset 10px 10px 22px rgba(255,255,255,.3);
+    animation: drift2 11s ease-in-out infinite alternate;
+  }
+  @keyframes drift { to { transform: translate(-10px, 14px) rotate(-6deg); } }
+  @keyframes drift2 { from { transform: rotate(28deg); } to { transform: translate(10px, -12px) rotate(22deg); } }
+
+  /* frosted glass card */
+  .glass {
+    position: relative;
+    background: var(--glass);
+    backdrop-filter: blur(22px) saturate(1.2);
+    -webkit-backdrop-filter: blur(22px) saturate(1.2);
+    border: 1.5px solid var(--glass-edge);
+    box-shadow: 0 10px 24px rgba(70, 70, 90, .12), inset 0 1px 0 rgba(255,255,255,.7);
+  }
+
+  .top-card {
+    width: min(64%, 380px);
+    margin-left: 6%;
+    border-top: none;
+    border-radius: 0 0 40px 40px;
+    padding: 86px 24px 44px;
+    text-align: center;
+    display: grid;
+    gap: 22px;
+    justify-items: center;
+  }
+  .label {
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .38em;
+    margin: 0;
+    padding-left: .38em;
+    text-transform: uppercase;
+  }
+  .label.small { font-size: .74rem; letter-spacing: .3em; font-weight: 500; }
+  .hearts { display: flex; gap: 26px; color: var(--ink); }
+  .hearts svg { width: 18px; height: 18px; }
+  .rule { width: 46px; height: 2px; background: var(--ink); border: 0; margin: 4px 0 0; }
+
+  .title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-align: center;
+    color: var(--ink);
+    font-size: clamp(2rem, 7.2vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin: clamp(60px, 11vw, 110px) 0 clamp(50px, 9vw, 90px);
+    padding-left: .14em;
+    text-wrap: balance;
+  }
+
+  .letter {
+    width: min(78%, 520px);
+    margin-left: auto;
+    border-radius: 44px;
+    padding: clamp(28px, 5vw, 44px) clamp(22px, 5vw, 44px) clamp(32px, 5vw, 48px);
+  }
+  .dots {
+    display: grid;
+    grid-template-columns: repeat(5, 5px);
+    gap: 7px;
+    margin-bottom: 26px;
+  }
+  .dots span { width: 5px; height: 5px; border-radius: 50%; background: var(--ink); }
+  .letter h2 {
+    margin: 0 0 22px;
+    text-align: center;
+    font-weight: 600;
+    font-size: clamp(.95rem, 2.6vw, 1.15rem);
+    letter-spacing: .3em;
+    padding-left: .3em;
+    line-height: 1.7;
+    text-transform: uppercase;
+  }
+  .letter p {
+    margin: 0 0 14px;
+    font-size: clamp(.88rem, 2.3vw, .98rem);
+    line-height: 1.75;
+    letter-spacing: .04em;
+    color: var(--ink-soft);
+    text-align: center;
+    text-wrap: pretty;
+  }
+  .letter p.love { color: var(--ink); font-weight: 500; margin-top: 20px; }
+  .sign {
+    margin-top: 26px;
+    text-align: center;
+    display: grid;
+    gap: 2px;
+  }
+  .sign .att { font-size: .72rem; letter-spacing: .3em; padding-left: .3em; text-transform: uppercase; color: var(--ink-soft); }
+  .sign .name { font-family: var(--font-script); font-size: clamp(2rem, 6vw, 2.6rem); color: var(--violet); line-height: 1.2; }
+
+  @media (max-width: 560px) {
+    .top-card { width: 78%; margin-left: 0; padding-top: 60px; }
+    .blob.b1 { width: 46%; right: -8%; top: 60px; }
+    .letter { width: 100%; }
+    .blob.b2 { width: 70%; left: -14%; bottom: 40%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .blob { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="heading">
+  <p class="over">TAYLOR &amp; ALI</p>
+  <p class="under">UN MES MÁS</p>
+</header>
+
+<main class="poster">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="glow g3"></div>
+  <div class="glow g4"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <section class="glass top-card" aria-label="Dedicatoria">
+    <p class="label">Para ti</p>
+    <p class="label small">mi princesa Alisson</p>
+    <div class="hearts" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.6.7-1.4 2.2-2.6 4.3-2.6 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.3-9-8.6C1.6 8.2 3.6 5 6.9 5c2 0 3.4 1.1 4.1 2.4C11.7 6.1 13.1 5 15.1 5c3.3 0 5.3 3.2 3.9 6.4C19 15.7 12 20 12 20z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.6.7-1.4 2.2-2.6 4.3-2.6 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>
+    </div>
+    <hr class="rule">
+  </section>
+
+  <h1 class="title">Feliz<br>Mesesaurio<br>Amor</h1>
+
+  <article class="glass letter">
+    <div class="dots" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <h2>Feliz Mesesaurio<br>Amor</h2>
+    <p>Un mes más contigo y sigo sintiendo lo mismo que el primer día, o hasta más. Gracias por elegirme cada día y por llenar mi vida de cosas bonitas.</p>
+    <p>Sé que la distancia a veces pesa, pero no hay kilómetro que me haga quererte menos. Te pienso todo el tiempo y te llevo conmigo a donde vaya.</p>
+    <p>Gracias por tu paciencia, por tus mensajes, por tu risa y por amarme como lo haces. Contigo aprendí que el amor de verdad se cuida todos los días, y yo quiero cuidarte siempre.</p>
+    <p>Que vengan muchos mesesaurios más, y que pronto los celebremos juntitos.</p>
+    <p class="love">Eres mi princesa, mi niña preciosa y mi persona favorita. Te amo, Alisson.</p>
+    <div class="sign">
+      <span class="att">Att:</span>
+      <span class="name">Tu amor, Taylor ♡</span>
+    </div>
+  </article>
+</main>
+
+</body>
+</html>
